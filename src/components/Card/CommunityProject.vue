@@ -35,7 +35,7 @@ const getNameSegments = computed(() => {
 
 <template>
   <div
-    class="bg-[#313336]/40 hover:bg-[#313336]/60 transition-colors flex-shrink-0 h-full p-4 rounded-lg w-80 snap-start"
+    class="bg-[#313336]/40 transition-colors flex-shrink-0 h-full p-4 rounded-lg w-80 snap-start"
   >
     <header class="flex flex-col space-y-2">
       <div class="flex flex-wrap items-start gap-1.5">
