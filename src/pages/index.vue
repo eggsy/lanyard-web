@@ -114,7 +114,7 @@ const handleSearch = async () => {
             v-model="playgroundInput"
             type="text"
             class="w-full px-4 py-2 transition-all rounded-lg outline-none appearance-none ring-white/30 focus:ring-1 bg-brand/40"
-            placeholder="Your user ID..."
+            placeholder="Enter user ID and press enter..."
             @keydown.enter="handleSearch"
           />
 
@@ -149,6 +149,7 @@ const handleSearch = async () => {
           <div
             v-motion-fade
             v-if="result.lanyard.error?.code === 'user_not_monitored'"
+            class="flex flex-col items-center space-y-2 lg:items-start"
           >
             <JoinDiscordButton />
             <span class="text-xs text-brand">
@@ -158,9 +159,12 @@ const handleSearch = async () => {
         </div>
 
         <div>
-          <pre class="overflow-y-auto rounded-lg bg-brand/40 h-96 no-scrollbar">
-            {{ result.lanyard }}
-          </pre>
+          <textarea
+            class="w-full p-4 overflow-x-hidden overflow-y-auto text-sm rounded-lg outline-none resize-none bg-brand/40 h-96 no-scrollbar"
+            :value="JSON.stringify(result.lanyard, null, 2)"
+            readonly
+          >
+          </textarea>
         </div>
       </div>
     </section>
