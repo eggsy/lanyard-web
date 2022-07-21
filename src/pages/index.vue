@@ -4,15 +4,38 @@ import { communityProjects } from "@/data/communityProjects";
 import { usedBy } from "../data/usedBy";
 
 import ChevronRight from "~icons/tabler/chevron-right";
-import LoginIcon from "~icons/tabler/login";
 
 const scrollContainer = ref<HTMLElement | null>(null);
+const playgroundInput = ref("");
+const result = reactive<any>({ lanyard: {} });
 
 const handleClick = () => {
   scrollContainer.value.scrollBy({
     left: 100,
     behavior: "smooth",
   });
+};
+
+const getStatus = computed(() => {
+  const status = result.lanyard?.data?.discord_status;
+
+  switch (status) {
+    case "online":
+      return { color: "bg-green-600", name: "Online" };
+    case "idle":
+      return { color: "bg-orange-600", name: "Idle" };
+    case "dnd":
+      return { color: "bg-red-600", name: "DND" };
+    default:
+      return { color: "bg-gray-200", name: "Offline" };
+  }
+});
+
+const handleSearch = async () => {
+  const response = await fetch(`${config.API_BASE}/${playgroundInput.value}`);
+  const data = await response.json();
+
+  result.lanyard = data;
 };
 </script>
 
@@ -46,17 +69,7 @@ const handleClick = () => {
       </div>
 
       <div>
-        <NuxtLink
-          :to="config.DISCORD"
-          target="_blank"
-          v-motion-fade
-          :delay="300"
-          class="flex items-center px-8 py-3 mx-auto space-x-2 transition-colors rounded-lg w-max lg:mx-0 bg-brand hover:bg-brand/50"
-          no-rel
-        >
-          <LoginIcon />
-          <span class="text-sm font-bold">Join Discord Server</span>
-        </NuxtLink>
+        <JoinDiscordButton v-motion-fade :delay="300" />
       </div>
     </header>
 
@@ -87,6 +100,68 @@ const handleClick = () => {
           >. On each presence change, Lanyard sends a WS signal to update the
           API response.
         </p>
+      </div>
+    </section>
+
+    <hr v-motion-fade-visible-once class="border-brand/50" />
+
+    <section v-motion-fade-visible-once class="py-8 space-y-4">
+      <h2 class="text-2xl font-bold leading-tight">Try It Yourself</h2>
+
+      <div class="grid gap-4 lg:grid-cols-2">
+        <div class="flex flex-col space-y-4">
+          <input
+            v-model="playgroundInput"
+            type="text"
+            class="w-full px-4 py-2 transition-all rounded-lg outline-none appearance-none ring-white/30 focus:ring-1 bg-brand/40"
+            placeholder="Your user ID..."
+            @keydown.enter="handleSearch"
+          />
+
+          <div class="space-y-2">
+            <!-- Name -->
+            <div class="flex items-center space-x-2">
+              <span class="text-white/50">User</span>
+              <span>{{
+                result.lanyard.data?.discord_user?.username || "Unknown"
+              }}</span>
+            </div>
+
+            <!-- User status -->
+            <div class="flex items-center space-x-2">
+              <span class="text-white/50">User is</span>
+              <div
+                class="w-3 h-3 transition-colors rounded-full"
+                :class="getStatus.color"
+              />
+              <span>{{ getStatus.name }}</span>
+            </div>
+
+            <!-- Listening to Spotify -->
+            <div class="flex items-center space-x-2">
+              <span class="text-white/50">Listening to Spotify</span>
+              <span>
+                {{ result.lanyard.data?.listening_to_spotify ? "Yes" : "No" }}
+              </span>
+            </div>
+          </div>
+
+          <div
+            v-motion-fade
+            v-if="result.lanyard.error?.code === 'user_not_monitored'"
+          >
+            <JoinDiscordButton />
+            <span class="text-xs text-brand">
+              Did you join the Discord server?
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <pre class="overflow-y-auto rounded-lg bg-brand/40 h-96 no-scrollbar">
+            {{ result.lanyard }}
+          </pre>
+        </div>
       </div>
     </section>
 
