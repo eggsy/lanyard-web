@@ -5,7 +5,9 @@ export default defineNuxtConfig({
   rootDir: ".",
   srcDir: "./src",
   components: true,
-  ssr: false,
+
+  ssr: true,
+  target: "static",
 
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image-edge", "unplugin-icons/nuxt"],
 
