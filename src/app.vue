@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+const small_title = "Lanyard API";
+const title = "Lanyard";
+const description =
+  "Expose your Discord presence and activities to a RESTful API and WebSocket in less than 10 seconds";
+
 useHead({
   title: "Lanyard",
   htmlAttrs: {
@@ -7,6 +12,56 @@ useHead({
   bodyAttrs: {
     class: "bg-[#13131A]",
   },
+  meta: [
+    {
+      name: "og:site_name",
+      content: small_title,
+    },
+
+    {
+      name: "title",
+      content: title,
+    },
+    {
+      name: "og:title",
+      content: title,
+    },
+    {
+      name: "twitter:title",
+      content: title,
+    },
+
+    {
+      name: "twitter:card",
+      content: "summary",
+    },
+    {
+      name: "og:image",
+      content: "/social-image.png",
+    },
+    {
+      name: "twitter:image",
+      content: "/social-image.png",
+    },
+
+    {
+      name: "description",
+      content: description,
+    },
+    {
+      name: "og:description",
+      content: description,
+    },
+    {
+      name: "twitter:description",
+      content: description,
+    },
+  ].map((item) => {
+    return {
+      ...item,
+      property: item.name,
+    };
+  }),
   link: [
     {
       rel: "icon",
