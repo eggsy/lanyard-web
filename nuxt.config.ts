@@ -9,7 +9,30 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image-edge", "unplugin-icons/nuxt"],
+  loading: {
+    color: "#D7BB87",
+  },
+
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image-edge",
+    "unplugin-icons/nuxt",
+    "@nuxt/content",
+  ],
+
+  content: {
+    highlight: {
+      theme: "one-dark-pro",
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      DISCORD: "https://discord.gg/UrXF2cfJ7F",
+      API_BASE: "https://api.lanyard.rest/v1/users",
+      GITHUB_REPO: "https://github.com/eggsy/lanyard-web",
+    },
+  },
 
   tailwindcss: {
     viewer: false,
