@@ -1,5 +1,7 @@
 # Lanyard Website
 
+[✨ Go to Lanyard's repository](https://github.com/phineas/lanyard).
+
 <p align="center">
   <img src="/demo.png" alt="demo image" />
 </p>
