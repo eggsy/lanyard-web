@@ -79,6 +79,7 @@ useHead({
     <Footer />
 
     <!-- Absolute items -->
+    <NuxtLoadingIndicator color="#D7BB87" />
     <GradientBackground />
   </div>
 </template>
