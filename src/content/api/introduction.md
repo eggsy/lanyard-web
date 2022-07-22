@@ -1,5 +1,23 @@
 ---
 order: 1
+head:
+  meta:
+    - name: "og:title"
+      property: "og:title"
+      content: "API Introduction"
+    - name: "twitter:title"
+      property: "twitter:title"
+      content: "API Introduction"
+
+    - name: "description"
+      property: "description"
+      content: "Learn how you can deal with Lanyard's API using REST and WebSockets."
+    - name: "og:description"
+      property: "og:description"
+      content: "Learn how you can deal with Lanyard's API using REST and WebSockets."
+    - name: "twitter:description"
+      property: "twitter:description"
+      content: "Learn how you can deal with Lanyard's API using REST and WebSockets."
 ---
 
 # Introduction

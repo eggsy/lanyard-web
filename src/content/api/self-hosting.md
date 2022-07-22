@@ -1,3 +1,24 @@
+---
+head:
+  meta:
+    - name: "og:title"
+      property: "og:title"
+      content: "Self-Hosting Lanyard"
+    - name: "twitter:title"
+      property: "twitter:title"
+      content: "Self-Hosting Lanyard"
+
+    - name: "description"
+      property: "description"
+      content: "Build Lanyard from source and self-host it using the Docker image."
+    - name: "og:description"
+      property: "og:description"
+      content: "Build Lanyard from source and self-host it using the Docker image."
+    - name: "twitter:description"
+      property: "twitter:description"
+      content: "Build Lanyard from source and self-host it using the Docker image."
+---
+
 # Self-Hosting Lanyard
 
 Build the Docker image by cloning this repo and running:

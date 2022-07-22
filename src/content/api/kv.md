@@ -1,3 +1,24 @@
+---
+head:
+  meta:
+    - name: "og:title"
+      property: "og:title"
+      content: "Key-Value Store"
+    - name: "twitter:title"
+      property: "twitter:title"
+      content: "Key-Value Store"
+
+    - name: "description"
+      property: "description"
+      content: "Use Lanyard KV to display dynamic and real-time updated data through Lanyard API."
+    - name: "og:description"
+      property: "og:description"
+      content: "Use Lanyard KV to display dynamic and real-time updated data through Lanyard API."
+    - name: "twitter:description"
+      property: "twitter:description"
+      content: "Use Lanyard KV to display dynamic and real-time updated data through Lanyard API."
+---
+
 # Key-Value Store
 
 Lanyard KV is a a dynamic, **real-time** key->value store which is added to the Lanyard user API response. When a KV pair is updated, a `PRESENCE_UPDATE` for the user will also be emitted through the Lanyard socket.

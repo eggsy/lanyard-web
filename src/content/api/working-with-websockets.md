@@ -1,3 +1,24 @@
+---
+head:
+  meta:
+    - name: "og:title"
+      property: "og:title"
+      content: "Working with WebSockets"
+    - name: "twitter:title"
+      property: "twitter:title"
+      content: "Working with WebSockets"
+
+    - name: "description"
+      property: "description"
+      content: "Use Lanyard with WebSockets to achieve real-time presence updates."
+    - name: "og:description"
+      property: "og:description"
+      content: "Use Lanyard with WebSockets to achieve real-time presence updates."
+    - name: "twitter:description"
+      property: "twitter:description"
+      content: "Use Lanyard with WebSockets to achieve real-time presence updates."
+---
+
 # Working with WebSockets
 
 The websocket is available at `wss://api.lanyard.rest/socket`. If you would like to use compression, please specify `?compression=zlib_json` at the end of the URL.
