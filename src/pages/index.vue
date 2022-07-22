@@ -15,6 +15,10 @@ const playgroundInput = ref("");
 const result = reactive<any>({ lanyard: {} });
 const config = useRuntimeConfig().public;
 
+useHead({
+  title: "Home",
+});
+
 const handleClick = () => {
   scrollContainer.value.scrollBy({
     left: 100,
