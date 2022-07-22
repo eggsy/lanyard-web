@@ -61,13 +61,13 @@ const handleSearch = useDebounceFn(async () => {
         <nuxt-img
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
-          class="w-64 rounded-md"
+          class="w-full rounded-md lg:w-64"
         />
 
         <nuxt-img
           preload
           src="https://i.imgur.com/1jiXloc.png"
-          class="w-64 rounded-md"
+          class="w-full rounded-md lg:w-64"
         />
       </div>
 
@@ -161,7 +161,7 @@ const handleSearch = useDebounceFn(async () => {
           </div>
         </div>
 
-        <div>
+        <div class="overflow-hidden">
           <Highlight :code="JSON.stringify(result.lanyard, null, 2)" />
         </div>
       </div>
