@@ -45,7 +45,7 @@ watch([route], () => {
       <hr class="my-8 border-dashed border-brand/20" />
 
       <Button
-        v-motion-fade-visible-once
+        v-motion-fade
         :delay="200"
         :href="`${config.GITHUB_REPO}/blob/main/src/content/api/${$route.params.slug}.md`"
         :icon="GithubIcon"
