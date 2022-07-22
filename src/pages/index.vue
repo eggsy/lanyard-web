@@ -29,7 +29,7 @@ const getStatus = computed(() => {
     case "online":
       return { color: "bg-green-600", name: "Online" };
     case "idle":
-      return { color: "bg-orange-600", name: "Idle" };
+      return { color: "bg-yellow-600", name: "Idle" };
     case "dnd":
       return { color: "bg-red-600", name: "DND" };
     default:
