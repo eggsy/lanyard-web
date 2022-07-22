@@ -85,6 +85,7 @@ useHead({
 <style lang="scss">
 html,
 body {
+  scroll-behavior: smooth;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
 
@@ -101,7 +102,7 @@ body {
 }
 
 code {
-  @apply bg-brand p-1 text-sm rounded-sm;
+  @apply bg-brand p-1 text-sm rounded-sm break-words;
 }
 
 .no-scrollbar {
