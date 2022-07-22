@@ -78,3 +78,33 @@ useHead({
     <Footer />
   </div>
 </template>
+
+<style lang="scss">
+html,
+body {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    @apply bg-brand/40;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-brand;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+}
+</style>
