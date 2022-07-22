@@ -9,10 +9,6 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  loading: {
-    color: "#D7BB87",
-  },
-
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/image-edge",
