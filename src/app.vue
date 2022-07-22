@@ -100,6 +100,10 @@ body {
   }
 }
 
+code {
+  @apply bg-brand p-1 text-sm rounded-sm;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
