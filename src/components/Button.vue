@@ -29,7 +29,7 @@ defineProps({
     :type="!href ? 'button' : null"
     :to="href || null"
     :target="href && blank ? '_blank' : null"
-    class="flex items-center px-8 py-3 mx-auto space-x-2 transition-colors rounded-lg cursor-pointer select-none w-max lg:mx-0 bg-brand hover:bg-brand/50"
+    class="flex items-center px-8 py-3 mx-auto space-x-2 transition-colors rounded-lg cursor-pointer select-none w-max lg:mx-0 bg-brand/40 hover:bg-brand/50"
     :no-rel="!!href"
   >
     <Component :is="icon" />
