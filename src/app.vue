@@ -72,10 +72,13 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-[#13131A] px-6 lg:px-0 min-h-screen text-white py-10">
+  <div class="min-h-screen px-6 py-10 text-white lg:px-0">
     <Navbar />
     <NuxtPage class="container py-16 mx-auto lg:w-7/12" />
     <Footer />
+
+    <!-- Absolute items -->
+    <GradientBackground />
   </div>
 </template>
 
