@@ -9,6 +9,7 @@ import { usedBy } from "../data/usedBy";
 // Icons
 import ChevronRight from "~icons/tabler/chevron-right";
 import LoginIcon from "~icons/tabler/login";
+import GithubIcon from "~icons/tabler/brand-github";
 
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
@@ -75,13 +76,18 @@ const handleSearch = useDebounceFn(async () => {
         />
       </div>
 
-      <div>
+      <div v-motion-fade :delay="300" class="flex items-center gap-4">
         <Button
-          v-motion-fade
-          :delay="300"
           :href="config.DISCORD"
           :icon="LoginIcon"
           label="Join Discord Server"
+          blank
+        />
+
+        <Button
+          href="https://github.com/phineas/lanyard"
+          :icon="GithubIcon"
+          label="Open Source"
           blank
         />
       </div>
@@ -235,18 +241,7 @@ const handleSearch = useDebounceFn(async () => {
   </main>
 </template>
 
-<style lang="scss">
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
-  }
-}
-
+<style>
 code {
   @apply bg-brand p-1 text-sm rounded-sm;
 }
