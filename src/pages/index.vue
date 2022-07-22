@@ -76,7 +76,11 @@ const handleSearch = useDebounceFn(async () => {
         />
       </div>
 
-      <div v-motion-fade :delay="300" class="flex items-center gap-4">
+      <div
+        v-motion-fade
+        :delay="300"
+        class="grid place-items-center lg:flex gap-x-4 gap-y-2 lg:place-items-start lg:grid-cols-2"
+      >
         <Button
           :href="config.DISCORD"
           :icon="LoginIcon"
@@ -135,7 +139,7 @@ const handleSearch = useDebounceFn(async () => {
             type="text"
             class="w-full px-4 py-2 transition-all rounded-lg outline-none appearance-none ring-white/30 focus:ring-1 bg-brand/40"
             placeholder="Enter user ID..."
-            @keyup="handleSearch"
+            @keyup.capture="handleSearch"
           />
 
           <div class="space-y-2">
@@ -169,7 +173,7 @@ const handleSearch = useDebounceFn(async () => {
           <div
             v-motion-fade
             v-if="result.lanyard.error?.code === 'user_not_monitored'"
-            class="flex flex-col items-center space-y-2 lg:items-start"
+            class="flex flex-col space-y-2"
           >
             <Button
               :href="config.DISCORD"
