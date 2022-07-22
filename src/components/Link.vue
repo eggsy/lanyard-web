@@ -26,14 +26,6 @@ const props = defineProps({
     default: false,
   },
 });
-
-const getComponent = computed(() => {
-  return {
-    to: props.internal ? props.href : null,
-    href: props.external ? props.href : null,
-    target: props.blank ? "_blank" : null,
-  };
-});
 </script>
 
 <template>
