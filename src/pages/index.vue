@@ -71,7 +71,7 @@ const handleSearch = useDebounceFn(async () => {
 
         <NuxtImg
           preload
-          src="https://i.imgur.com/1jiXloc.png"
+          src="https://i.imgur.com/mbaEnBi.png"
           class="w-full rounded-md lg:w-64"
         />
       </div>
