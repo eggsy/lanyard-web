@@ -31,9 +31,9 @@ fetch("https://api.lanyard.rest/v1/users/162969778699501569")
   .then(console.log);
 ```
 
-### Example Response
+### Interactive Playground
 
 `GET https://api.lanyard.rest/v1/users/:user_id`
 
-::introduction-response{class=py-10}
+::introduction-response
 ::
