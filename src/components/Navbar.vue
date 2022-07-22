@@ -16,7 +16,7 @@ import ApiIcon from "~icons/tabler/packge-import";
       />
     </NuxtLink>
 
-    <ul class="flex items-center space-x-6">
+    <ul class="items-center hidden space-x-6 lg:flex">
       <li class="flex items-center space-x-2">
         <HomeIcon />
         <Link href="/" internal>Home</Link>
