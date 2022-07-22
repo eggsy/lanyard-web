@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import XIcon from "~icons/tabler/x";
 import HomeIcon from "~icons/tabler/home";
+
+useHead({
+  title: "Document Not Found",
+});
 </script>
 
 <template>
