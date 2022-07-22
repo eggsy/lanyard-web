@@ -58,13 +58,13 @@ const handleSearch = useDebounceFn(async () => {
         :delay="250"
         class="flex flex-wrap min-h-[140px] items-start justify-center lg:justify-start gap-x-4 gap-y-2 no-scrollbar"
       >
-        <nuxt-img
+        <NuxtImg
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
           class="w-full rounded-md lg:w-64"
         />
 
-        <nuxt-img
+        <NuxtImg
           preload
           src="https://i.imgur.com/1jiXloc.png"
           class="w-full rounded-md lg:w-64"
