@@ -25,12 +25,12 @@ defineProps({
 
 <template>
   <Component
-    :is="href ? 'nuxt-link' : 'button'"
+    :is="href ? 'a' : 'button'"
     :type="!href ? 'button' : null"
-    :to="href || null"
+    :href="href || null"
     :target="href && blank ? '_blank' : null"
-    class="flex items-center px-8 py-3 mx-auto space-x-2 transition-colors rounded-lg cursor-pointer select-none w-max lg:mx-0 bg-brand/40 hover:bg-brand/50"
-    :no-rel="!!href"
+    :rel="href && blank ? 'noopener noreferrer' : null"
+    class="flex items-center justify-center w-full px-8 py-3 space-x-2 text-center transition-colors rounded-lg cursor-pointer lg:w-max bg-brand/40 hover:bg-brand/50"
   >
     <Component :is="icon" />
     <span class="text-sm font-bold">{{ label }}</span>
