@@ -1,10 +1,14 @@
 <script lang="ts" setup>
 import { config } from "@/data/config";
+import { useDebounceFn } from "@vueuse/shared";
+
+// Data
 import { communityProjects } from "@/data/communityProjects";
 import { usedBy } from "../data/usedBy";
 
+// Icons
 import ChevronRight from "~icons/tabler/chevron-right";
-import { useDebounceFn } from "@vueuse/shared";
+import LoginIcon from "~icons/tabler/login";
 
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
@@ -39,7 +43,7 @@ const handleSearch = useDebounceFn(async () => {
   const data = await response.json();
 
   result.lanyard = data;
-}, 500);
+}, 150);
 </script>
 
 <template>
@@ -72,7 +76,14 @@ const handleSearch = useDebounceFn(async () => {
       </div>
 
       <div>
-        <JoinDiscordButton v-motion-fade :delay="300" />
+        <Button
+          v-motion-fade
+          :delay="300"
+          :href="config.DISCORD"
+          :icon="LoginIcon"
+          label="Join Discord Server"
+          blank
+        />
       </div>
     </header>
 
@@ -154,7 +165,12 @@ const handleSearch = useDebounceFn(async () => {
             v-if="result.lanyard.error?.code === 'user_not_monitored'"
             class="flex flex-col items-center space-y-2 lg:items-start"
           >
-            <JoinDiscordButton />
+            <Button
+              :href="config.DISCORD"
+              :icon="LoginIcon"
+              label="Join Discord Server"
+              blank
+            />
             <span class="text-xs text-brand">
               Did you join the Discord server?
             </span>
@@ -219,12 +235,14 @@ const handleSearch = useDebounceFn(async () => {
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
     background: transparent;
   }
 }
