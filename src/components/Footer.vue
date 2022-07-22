@@ -14,5 +14,9 @@ import HeartIcon from "~icons/tabler/heart";
       website by
       <Link href="https://github.com/eggsy" external blank>@eggsy</Link>
     </span>
+
+    <Link href="https://github.com/eggsy/lanyard-web" external blank>
+      Open source on GitHub
+    </Link>
   </footer>
 </template>
