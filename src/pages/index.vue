@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { config } from "@/data/config";
 import { useDebounceFn } from "@vueuse/shared";
 
 // Data
@@ -14,6 +13,7 @@ import GithubIcon from "~icons/tabler/brand-github";
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
 const result = reactive<any>({ lanyard: {} });
+const config = useRuntimeConfig().public;
 
 const handleClick = () => {
   scrollContainer.value.scrollBy({
@@ -247,9 +247,3 @@ const handleSearch = useDebounceFn(async () => {
     </section>
   </main>
 </template>
-
-<style>
-code {
-  @apply bg-brand p-1 text-sm rounded-sm;
-}
-</style>
