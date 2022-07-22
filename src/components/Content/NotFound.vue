@@ -3,7 +3,7 @@ import XIcon from "~icons/tabler/x";
 import HomeIcon from "~icons/tabler/home";
 
 useHead({
-  title: "Document Not Found",
+  title: "Lanyard",
 });
 </script>
 
