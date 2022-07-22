@@ -56,25 +56,8 @@ watch([route], () => {
   </div>
 </template>
 
-<style lang="scss">
-pre {
-  @apply bg-brand/20 w-full text-base rounded-lg overflow-x-auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
-  }
-
-  code {
-    @apply bg-transparent;
-    font-size: 1em !important;
-  }
-}
-
-.prose-base {
+<style lang="scss" scoped>
+:deep(.prose-base) {
   ul,
   ol {
     list-style-type: unset;
@@ -83,6 +66,23 @@ pre {
   p,
   li {
     @apply text-white/50;
+  }
+
+  pre {
+    @apply bg-brand/20 w-full rounded-lg overflow-x-auto px-4 py-6;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background: transparent;
+    }
+
+    code {
+      @apply bg-transparent p-0;
+      font-size: 1em !important;
+    }
   }
 }
 </style>
