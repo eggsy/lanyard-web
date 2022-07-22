@@ -4,6 +4,7 @@ import { communityProjects } from "@/data/communityProjects";
 import { usedBy } from "../data/usedBy";
 
 import ChevronRight from "~icons/tabler/chevron-right";
+import { useDebounceFn } from "@vueuse/shared";
 
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
@@ -31,12 +32,14 @@ const getStatus = computed(() => {
   }
 });
 
-const handleSearch = async () => {
+const handleSearch = useDebounceFn(async () => {
+  if (playgroundInput.value === "") return;
+
   const response = await fetch(`${config.API_BASE}/${playgroundInput.value}`);
   const data = await response.json();
 
   result.lanyard = data;
-};
+}, 500);
 </script>
 
 <template>
@@ -114,8 +117,8 @@ const handleSearch = async () => {
             v-model="playgroundInput"
             type="text"
             class="w-full px-4 py-2 transition-all rounded-lg outline-none appearance-none ring-white/30 focus:ring-1 bg-brand/40"
-            placeholder="Enter user ID and press enter..."
-            @keydown.enter="handleSearch"
+            placeholder="Enter user ID..."
+            @keyup="handleSearch"
           />
 
           <div class="space-y-2">
@@ -159,12 +162,7 @@ const handleSearch = async () => {
         </div>
 
         <div>
-          <textarea
-            class="w-full p-4 overflow-x-hidden overflow-y-auto text-sm rounded-lg outline-none resize-none bg-brand/40 h-96 no-scrollbar"
-            :value="JSON.stringify(result.lanyard, null, 2)"
-            readonly
-          >
-          </textarea>
+          <Highlight :code="JSON.stringify(result.lanyard, null, 2)" />
         </div>
       </div>
     </section>

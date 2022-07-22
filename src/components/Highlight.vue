@@ -34,7 +34,7 @@ const getHighlightedJson = computed(() => {
   />
 </template>
 
-<style scoped>
+<style>
 .string {
   color: #98c379;
 }
