@@ -39,9 +39,3 @@ const errorTypes = [
     </div>
   </div>
 </template>
-
-<style scoped>
-:deep(h3) {
-  @apply hover:no-underline;
-}
-</style>
