@@ -35,7 +35,7 @@ Example of `Opcode 2: Initialize`:
   d: {
     // subscribe_to_ids should be an array of user IDs you want to subscribe to presences from
     // if Lanyard doesn't monitor an ID specified, it won't be included in INIT_STATE
-    subscribe_to_ids: ["94490510688792576"]
+    subscribe_to_ids: ["162969778699501569"]
   }
 }
 ```
@@ -65,7 +65,7 @@ Events are received on `Opcode 0: Event` - the event type will be part of the ro
 
 #### Example Event Message Objects
 
-#### `INIT_STATE`
+`INIT_STATE`
 
 ```js
 {
@@ -73,14 +73,14 @@ Events are received on `Opcode 0: Event` - the event type will be part of the ro
   seq: 1,
   t: "INIT_STATE",
   d: {
-    "94490510688792576": {
+    "162969778699501569": {
       // Full Lanyard presence (see API docs above for example)
     }
   }
 }
 ```
 
-#### `PRESENCE_UPDATE`
+`PRESENCE_UPDATE`
 
 ```js
 {
