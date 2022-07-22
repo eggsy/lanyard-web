@@ -13,7 +13,7 @@ const { refresh, data } = await useAsyncData(() =>
   <div class="flex flex-col items-center gap-2 lg:flex-row">
     <input
       v-model="userIdInput"
-      class="w-full p-2.5 transition-all rounded-lg outline-none ring-white/10 focus:ring-1 bg-brand/40"
+      class="w-full px-4 py-2 transition-all rounded-lg outline-none placeholder-white/50 text-white/90 ring-white/10 focus:ring-1 bg-brand/40"
       placeholder="User ID"
       @keydown.enter="refresh()"
     />
