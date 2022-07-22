@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import NotFound from "@/components/content/NotFound.vue";
+
 import ChevronLeft from "~icons/tabler/arrow-big-left";
 import GithubIcon from "~icons/tabler/brand-github";
 
@@ -9,6 +11,13 @@ const hasDocument = await queryContent().only("_path").find();
 const hasThisDocument = computed(() => {
   const mappedItems = hasDocument.map((doc) => doc._path);
   return mappedItems.includes(route.fullPath);
+});
+
+watch([route], () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 </script>
 
@@ -27,7 +36,7 @@ const hasThisDocument = computed(() => {
     <main class="prose-base" v-motion-fade :delay="200">
       <ContentDoc>
         <template #not-found>
-          <ContentNotFound />
+          <NotFound />
         </template>
       </ContentDoc>
     </main>
