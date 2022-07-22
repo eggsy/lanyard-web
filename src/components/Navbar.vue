@@ -16,7 +16,7 @@ import ApiIcon from "~icons/tabler/packge-import";
       />
     </NuxtLink>
 
-    <ul class="items-center hidden space-x-6 lg:flex">
+    <ul class="flex items-center space-x-6">
       <li class="flex items-center space-x-2">
         <HomeIcon />
         <Link href="/" internal>Home</Link>
@@ -24,7 +24,7 @@ import ApiIcon from "~icons/tabler/packge-import";
 
       <li class="flex items-center space-x-2">
         <ApiIcon />
-        <Link href="/api" internal>API</Link>
+        <Link href="/api/introduction" internal>API</Link>
       </li>
     </ul>
   </nav>
