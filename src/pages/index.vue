@@ -196,8 +196,11 @@ const handleSearch = useDebounceFn(async () => {
     <hr v-motion-fade-visible-once class="border-brand/50" />
 
     <section v-motion-fade-visible-once class="py-8 space-y-4">
-      <div class="flex items-center justify-between space-y-2 leading-tight">
+      <div
+        class="flex flex-col justify-between leading-tight lg:items-center lg:flex-row"
+      >
         <h2 class="text-2xl font-bold leading-tight">Community Projects</h2>
+
         <div class="flex items-center space-x-2">
           <p class="text-sm text-white/50">
             {{ communityProjects.length }} tools in total
@@ -205,7 +208,7 @@ const handleSearch = useDebounceFn(async () => {
 
           <button
             type="button"
-            class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
+            class="hidden p-1 transition-colors rounded-full lg:block bg-brand hover:bg-brand/50"
             @click="handleClick"
           >
             <ChevronRight />
