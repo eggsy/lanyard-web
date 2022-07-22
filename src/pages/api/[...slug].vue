@@ -49,7 +49,7 @@ const hasThisDocument = computed(() => {
 
 <style lang="scss">
 pre {
-  @apply bg-brand/40 w-full text-base rounded-lg overflow-x-auto;
+  @apply bg-brand/20 w-full text-base rounded-lg overflow-x-auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
 
