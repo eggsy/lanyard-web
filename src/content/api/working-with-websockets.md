@@ -100,3 +100,4 @@ Lanyard can disconnect clients for multiple reasons, usually to do with messages
 #### Types of Errors
 
 ::error-types
+::
