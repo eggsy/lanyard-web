@@ -9,14 +9,19 @@
   "devDependencies": {
     "@iconify-json/logos": "^1.1.11",
     "@iconify-json/tabler": "^1.1.20",
+    "@nuxt/content": "^2.0.1",
     "@nuxt/image-edge": "^1.0.0-27628766.3629b9a",
     "@tailwindcss/line-clamp": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.4",
+    "@types/prismjs": "^1.26.0",
     "nuxt": "3.0.0-rc.6",
     "sass": "^1.53.0",
     "unplugin-icons": "^0.14.7"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^5.3.0",
-    "@vueuse/motion": "^2.0.0-beta.12"
+    "@vueuse/motion": "^2.0.0-beta.12",
+    "prismjs": "^1.28.0",
+    "shiki": "^0.10.1"
   }
 }
