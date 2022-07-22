@@ -30,7 +30,7 @@ const getHighlightedJson = computed(() => {
 <template>
   <pre
     v-html="getHighlightedJson"
-    class="w-full p-4 overflow-x-hidden overflow-y-auto text-sm rounded-lg resize-none no-scrollbar bg-brand/40 h-96"
+    class="w-full p-4 overflow-x-auto overflow-y-auto text-sm rounded-lg resize-none no-scrollbar bg-brand/40 h-96"
   />
 </template>
 
