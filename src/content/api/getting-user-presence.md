@@ -23,7 +23,7 @@ head:
 
 Simply send a GET request to users endpoint with your `user ID`. This is for the REST API, if you want to check the WebSocket documentation to get real-time updates, [click here](/api/working-with-websockets).
 
-### Code
+### JavaScript Code
 
 ```js
 fetch("https://api.lanyard.rest/v1/users/162969778699501569")
