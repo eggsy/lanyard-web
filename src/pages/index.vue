@@ -7,6 +7,7 @@ import { usedBy } from "../data/usedBy";
 
 // Icons
 import ChevronRight from "~icons/tabler/chevron-right";
+import ChevronLeft from "~icons/tabler/chevron-left";
 import LoginIcon from "~icons/tabler/login";
 import GithubIcon from "~icons/tabler/brand-github";
 
@@ -19,9 +20,9 @@ useHead({
   title: "Home",
 });
 
-const handleClick = () => {
+const handleClick = (direction: "prev" | "next") => {
   scrollContainer.value.scrollBy({
-    left: 100,
+    left: direction === "prev" ? -200 : 200,
     behavior: "smooth",
   });
 };
@@ -210,13 +211,23 @@ const handleSearch = useDebounceFn(async () => {
             {{ communityProjects.length }} tools in total
           </p>
 
-          <button
-            type="button"
-            class="hidden p-1 transition-colors rounded-full lg:block bg-brand hover:bg-brand/50"
-            @click="handleClick"
-          >
-            <ChevronRight />
-          </button>
+          <div class="items-center hidden space-x-1 lg:flex">
+            <button
+              type="button"
+              class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
+              @click="handleClick('prev')"
+            >
+              <ChevronLeft />
+            </button>
+
+            <button
+              type="button"
+              class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
+              @click="handleClick('next')"
+            >
+              <ChevronRight />
+            </button>
+          </div>
         </div>
       </div>
 
