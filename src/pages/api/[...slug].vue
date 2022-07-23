@@ -33,12 +33,14 @@ watch([route], () => {
       </NuxtLink>
     </div>
 
-    <main class="prose-base" v-motion-fade :delay="200">
-      <ContentDoc>
-        <template #not-found>
-          <NotFound />
-        </template>
-      </ContentDoc>
+    <main v-motion-fade :delay="200">
+      <article class="prose-base">
+        <ContentDoc>
+          <template #not-found>
+            <NotFound />
+          </template>
+        </ContentDoc>
+      </article>
     </main>
 
     <template v-if="hasThisDocument">
@@ -58,6 +60,10 @@ watch([route], () => {
 
 <style lang="scss" scoped>
 :deep(.prose-base) {
+  p a {
+    @apply border-b border-white/10 border-dashed transition-colors hover:border-white/40;
+  }
+
   ul,
   ol {
     list-style-type: unset;
