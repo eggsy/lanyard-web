@@ -61,4 +61,5 @@ export const usedBy = [
   "sundei.de",
   "sanct.me",
   "leonard.sh",
+  "ithundxr.dev",
 ];
