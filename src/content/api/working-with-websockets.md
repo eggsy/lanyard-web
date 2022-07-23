@@ -21,9 +21,9 @@ head:
 
 # Working with WebSockets
 
-The websocket is available at `wss://api.lanyard.rest/socket`. If you would like to use compression, please specify `?compression=zlib_json` at the end of the URL.
+The WebSocket server acts like a "real-time update data" server, each time a presence update is triggered, you'll receive the new data from the WS server. The Lanyard WebSocket is available at `wss://api.lanyard.rest/socket`. If you would like to use compression, please specify `?compression=zlib_json` at the end of the URL. [You can read more about WebSockets for web here](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
-Once connected, you will receive Opcode 1: Hello which will contain heartbeat_interval in the data field. You should set a repeating interval for the time specified in heartbeat_interval which should send Opcode 3: Heartbeat on the interval.
+Once connected, you will receive `Opcode 1: Hello` which will contain heartbeat_interval in the data field. You should set a repeating interval for the time specified in heartbeat_interval which should send `Opcode 3: Heartbeat` on the interval.
 
 You should send `Opcode 2: Initialize` immediately after receiving Opcode 1.
 
