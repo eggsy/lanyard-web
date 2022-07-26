@@ -49,7 +49,7 @@ watch([route], () => {
       <Button
         v-motion-fade
         :delay="200"
-        :href="`${config.GITHUB_REPO}/blob/main/src/content/api/${$route.params.slug}.md`"
+        :href="`${config.GITHUB_REPO}/edit/main/src/content/api/${$route.params.slug}.md`"
         :icon="GithubIcon"
         label="Edit this page on GitHub"
         blank
