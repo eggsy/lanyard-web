@@ -2,6 +2,8 @@
 import IconApi from "~icons/tabler/packge-import";
 
 const scrollHeight = ref(0);
+const route = useRoute();
+
 const handler = () => {
   scrollHeight.value = window.scrollY;
 };
@@ -18,7 +20,7 @@ onBeforeUnmount(() => {
 <template>
   <Transition name="slide-up" mode="out-in">
     <Button
-      v-show="scrollHeight > 150"
+      v-show="scrollHeight > 150 && route.path === '/'"
       href="/api/introduction"
       :icon="IconApi"
       label="Documentation"
