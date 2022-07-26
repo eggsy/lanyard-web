@@ -54,7 +54,7 @@ const handleSearch = useDebounceFn(async () => {
 
 <template>
   <main class="flex flex-col gap-y-10">
-    <header class="pb-8 space-y-8 lg:pb-16 lg:pt-10">
+    <header class="pb-8 space-y-8 lg:pb-14 lg:pt-10">
       <h1
         v-motion-fade
         :delay="150"
