@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import HeartIcon from "~icons/tabler/heart";
+
+const config = useRuntimeConfig().public;
 </script>
 
 <template>
@@ -15,7 +17,7 @@ import HeartIcon from "~icons/tabler/heart";
       <Link href="https://github.com/eggsy" external blank>@eggsy</Link>
     </span>
 
-    <Link href="https://github.com/eggsy/lanyard-web" external blank>
+    <Link :href="config.GITHUB_REPO" external blank>
       Open source on GitHub
     </Link>
   </footer>
