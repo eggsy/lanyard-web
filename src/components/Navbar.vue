@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import HomeIcon from "~icons/tabler/home";
-import ApiIcon from "~icons/tabler/packge-import";
+import IconHome from "~icons/tabler/home";
+import IconApi from "~icons/tabler/packge-import";
 </script>
 
 <template>
@@ -16,14 +16,14 @@ import ApiIcon from "~icons/tabler/packge-import";
       />
     </NuxtLink>
 
-    <ul class="flex items-center space-x-6">
+    <ul class="items-center hidden space-x-6 lg:flex">
       <li class="flex items-center space-x-2">
-        <HomeIcon />
+        <IconHome />
         <Link href="/" internal>Home</Link>
       </li>
 
       <li class="flex items-center space-x-2">
-        <ApiIcon />
+        <IconApi />
         <Link href="/api/introduction" internal>API</Link>
       </li>
     </ul>
