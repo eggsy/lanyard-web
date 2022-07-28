@@ -6,13 +6,15 @@ import { communityProjects } from "@/data/communityProjects";
 import { usedBy } from "../data/usedBy";
 
 // Icons
-import ChevronRight from "~icons/tabler/chevron-right";
-import ChevronLeft from "~icons/tabler/chevron-left";
-import LoginIcon from "~icons/tabler/login";
-import GithubIcon from "~icons/tabler/brand-github";
+import IconChevronRight from "~icons/tabler/chevron-right";
+import IconChevronLeft from "~icons/tabler/chevron-left";
+import IconLogin from "~icons/tabler/login";
+import IconGithub from "~icons/tabler/brand-github";
+import IconApi from "~icons/tabler/api";
 
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
+const magicPreviewError = ref(false);
 const result = reactive<any>({ lanyard: {} });
 const {
   public: { API_BASE, DISCORD },
@@ -85,14 +87,14 @@ const handleSearch = useDebounceFn(async () => {
       >
         <Button
           :href="DISCORD"
-          :icon="LoginIcon"
+          :icon="IconLogin"
           label="Join Discord Server"
           blank
         />
 
         <Button
           href="https://github.com/phineas/lanyard"
-          :icon="GithubIcon"
+          :icon="IconGithub"
           label="Open Source"
           blank
         />
@@ -179,7 +181,7 @@ const handleSearch = useDebounceFn(async () => {
           >
             <Button
               :href="DISCORD"
-              :icon="LoginIcon"
+              :icon="IconLogin"
               label="Join Discord Server"
               blank
             />
@@ -193,6 +195,73 @@ const handleSearch = useDebounceFn(async () => {
         <div class="overflow-hidden">
           <Highlight :code="JSON.stringify(result.lanyard, null, 2)" />
         </div>
+      </div>
+    </section>
+
+    <hr v-motion-fade-visible-once class="border-brand/50" />
+
+    <section
+      v-motion-fade-visible-once
+      class="grid py-8 gap-y-6 gap-x-10 lg:grid-cols-2 lg:justify-between"
+    >
+      <div class="space-y-4 lg:pb-4">
+        <h2 class="text-2xl font-bold leading-tight">The magic</h2>
+        <p class="text-white/50">
+          Lanyard API is meant to create whatever you want using the data it
+          provides. Some cool people have already created
+          amazing projects, want to try one? Let's preview how would
+          <Link
+            href="https://github.com/cnrad/lanyard-profile-readme"
+            external
+            blank
+            >lanyard-profile-readme</Link
+          >
+          would look on your profile/website.
+        </p>
+
+        <div class="space-y-1">
+          <p class="text-sm text-white/50">
+            {{
+              playgroundInput && magicPreviewError === false
+                ? "🤯 Now, isn't that cool?"
+                : "✨ Enter user ID to see the magic"
+            }}
+          </p>
+
+          <Button
+            href="/api/introduction"
+            label="Read more about the API"
+            :icon="IconApi"
+          />
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <input
+          v-model="playgroundInput"
+          type="text"
+          class="w-full px-4 py-2 transition-all rounded-lg outline-none appearance-none ring-white/30 focus:ring-1 bg-brand/40"
+          placeholder="Enter user ID to see the magic"
+          @keyup.capture="handleSearch"
+        />
+
+        <NuxtImg
+          v-show="playgroundInput && magicPreviewError === false"
+          v-motion-fade
+          :src="`https://lanyard.cnrad.dev/api/${playgroundInput}`"
+          alt="lanyard profile readme"
+          @error="magicPreviewError = true"
+          @load="magicPreviewError = false"
+        />
+
+        <p
+          v-if="magicPreviewError && playgroundInput !== ''"
+          v-motion-fade
+          class="text-sm leading-tight text-white/50"
+        >
+          Make sure you put the right ID and you joined Lanyard's Discord
+          server.
+        </p>
       </div>
     </section>
 
@@ -215,7 +284,7 @@ const handleSearch = useDebounceFn(async () => {
               class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
               @click="handleClick('prev')"
             >
-              <ChevronLeft />
+              <IconChevronLeft />
             </button>
 
             <button
@@ -223,7 +292,7 @@ const handleSearch = useDebounceFn(async () => {
               class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
               @click="handleClick('next')"
             >
-              <ChevronRight />
+              <IconChevronRight />
             </button>
           </div>
         </div>
