@@ -27,7 +27,7 @@ watch([route], () => {
   <div>
     <div
       v-motion-fade
-      v-if="!$route.params.slug?.includes('introduction')"
+      v-if="route.params.slug && !$route.params.slug?.includes('introduction')"
       class="hidden float-left lg:block -ml-14 top-10"
     >
       <NuxtLink to="/api/introduction">
@@ -37,7 +37,9 @@ watch([route], () => {
 
     <main v-motion-fade :delay="200">
       <article class="prose-base">
-        <ContentDoc>
+        <ContentDoc
+          :path="!$route.params.slug ? `api/introduction` : $route.path"
+        >
           <template #not-found>
             <NotFound />
           </template>
