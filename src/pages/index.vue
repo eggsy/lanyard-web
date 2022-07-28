@@ -148,9 +148,9 @@ const handleSearch = useDebounceFn(async () => {
             <!-- Name -->
             <div class="flex items-center space-x-2">
               <span class="text-white/50">User</span>
-              <span>{{
-                result.lanyard.data?.discord_user?.username || "Unknown"
-              }}</span>
+              <span>
+                {{ result.lanyard.data?.discord_user?.username || "Unknown" }}
+              </span>
             </div>
 
             <!-- User status -->
@@ -183,6 +183,7 @@ const handleSearch = useDebounceFn(async () => {
               label="Join Discord Server"
               blank
             />
+
             <span class="text-xs text-brand">
               Did you join the Discord server?
             </span>
