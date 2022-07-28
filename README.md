@@ -1,12 +1,12 @@
 # Lanyard Website
 
-[✨ Go to Lanyard's repository](https://github.com/phineas/lanyard).
+[✨ Go to Lanyard's repository](https://github.com/phineas/lanyard)
 
 <p align="center">
   <img src="/demo.png" alt="demo image" />
 </p>
 
-A new, beautiful and the-way-it-supposed-to-be way to review Lanyard, its community projects and websites that use Lanyard in one place!
+A new, beautiful and the-way-it-supposed-to-be way to review Lanyard, its community projects, websites that use Lanyard and the API Documentation in one place!
 
 Built with [Nuxt 3](https://v3.nuxtjs.org), [Tailwind CSS](https://tailwindcss.com) and [VueUse](https://vueuse.org)
 

@@ -68,13 +68,13 @@ const handleSearch = useDebounceFn(async () => {
         <NuxtImg
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
-          class="w-full rounded-md lg:w-[300px] xl:w-[350px]"
+          class="w-full rounded-md lg:w-72 xl:w-80"
         />
 
         <NuxtImg
           preload
           src="https://i.imgur.com/mbaEnBi.png"
-          class="w-full rounded-md lg:w-[300px] xl:w-[350px]"
+          class="w-full rounded-md lg:w-72 xl:w-80"
         />
       </div>
 
@@ -148,9 +148,9 @@ const handleSearch = useDebounceFn(async () => {
             <!-- Name -->
             <div class="flex items-center space-x-2">
               <span class="text-white/50">User</span>
-              <span>{{
-                result.lanyard.data?.discord_user?.username || "Unknown"
-              }}</span>
+              <span>
+                {{ result.lanyard.data?.discord_user?.username || "Unknown" }}
+              </span>
             </div>
 
             <!-- User status -->
@@ -183,6 +183,7 @@ const handleSearch = useDebounceFn(async () => {
               label="Join Discord Server"
               blank
             />
+
             <span class="text-xs text-brand">
               Did you join the Discord server?
             </span>
