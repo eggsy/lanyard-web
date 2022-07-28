@@ -21,7 +21,7 @@ const {
 </script>
 
 <template>
-  <section v-if="!error" v-motion-fade-visible-once class="space-y-4">
+  <section v-if="!error" v-motion-fade-visible-once class="py-8 space-y-4">
     <div class="flex justify-between space-x-4">
       <h2 class="text-2xl font-bold leading-tight">Stargazers</h2>
 
