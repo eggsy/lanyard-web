@@ -4,7 +4,7 @@ import IconStar from "~icons/tabler/star";
 interface IGithubResponse {
   login: string;
   avatar_url: string;
-  url: string;
+  html_url: string;
 }
 
 const {
@@ -41,7 +41,7 @@ const {
       <p v-if="pending">Loading data...</p>
 
       <div v-for="(profile, index) in stargazers" :key="`stargazer-${index}`">
-        <Link :href="profile.url" external blank :title="profile.login">
+        <Link :href="profile.html_url" external blank :title="profile.login">
           <img
             :src="profile.avatar_url"
             class="w-10 h-10 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
