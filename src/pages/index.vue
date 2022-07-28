@@ -31,7 +31,7 @@ const handleClick = (direction: "prev" | "next") => {
   });
 };
 
-const getStatus = computed(
+const getStatus = computed<{ color: string; name: string }>(
   () =>
     ({
       online: { color: "bg-green-600", name: "Online" },
@@ -328,5 +328,7 @@ const handleSearch = useDebounceFn(async () => {
         </Link>
       </div>
     </section>
+
+    <Stargazers />
   </main>
 </template>
