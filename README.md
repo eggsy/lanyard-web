@@ -26,6 +26,14 @@ If you have recently built a website and used Lanyard API, you can add your webs
 - Create an appropriate Pull Request which will be reviewed before pushing.
 - If your PR gets merged, you'll see your project on the website
 
+### Sponsors
+
+<p align="center">
+  <a href="https://github.com/sponsors/eggsy">
+    <img src='https://cdn.jsdelivr.net/gh/eggsy/.github/sponsors.svg'/>
+  </a>
+</p>
+
 ### License
 
 [MIT License](https://github.com/eggsy/lanyard-web/blob/main/LICENSE) © Abdulbaki "EGGSY" Dursun
