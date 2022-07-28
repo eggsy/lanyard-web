@@ -33,4 +33,12 @@ export default defineNuxtConfig({
   tailwindcss: {
     viewer: false,
   },
+
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ["unplugin-icons/types/vue"],
+      },
+    },
+  },
 });
