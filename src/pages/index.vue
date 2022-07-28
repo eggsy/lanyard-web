@@ -329,6 +329,8 @@ const handleSearch = useDebounceFn(async () => {
       </div>
     </section>
 
+    <hr v-motion-fade-visible-once class="border-brand/50" />
+
     <Stargazers />
   </main>
 </template>
