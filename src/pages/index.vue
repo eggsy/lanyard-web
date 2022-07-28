@@ -14,7 +14,9 @@ import GithubIcon from "~icons/tabler/brand-github";
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
 const result = reactive<any>({ lanyard: {} });
-const config = useRuntimeConfig().public;
+const {
+  public: { API_BASE, DISCORD },
+} = useRuntimeConfig();
 
 useHead({
   title: "Home",
@@ -27,25 +29,20 @@ const handleClick = (direction: "prev" | "next") => {
   });
 };
 
-const getStatus = computed(() => {
-  const status = result.lanyard?.data?.discord_status;
-
-  switch (status) {
-    case "online":
-      return { color: "bg-green-600", name: "Online" };
-    case "idle":
-      return { color: "bg-yellow-600", name: "Idle" };
-    case "dnd":
-      return { color: "bg-red-600", name: "DND" };
-    default:
-      return { color: "bg-gray-200", name: "Offline" };
-  }
-});
+const getStatus = computed(
+  () =>
+    ({
+      online: { color: "bg-green-600", name: "Online" },
+      dnd: { color: "bg-red-600", name: "Do Not Disturb" },
+      idle: { color: "bg-yellow-600", name: "Idle" },
+      offline: { color: "bg-gray-200", name: "Offline" },
+    }[result.lanyard?.data?.discord_status || "offline"])
+);
 
 const handleSearch = useDebounceFn(async () => {
   if (playgroundInput.value === "") return;
 
-  const response = await fetch(`${config.API_BASE}/${playgroundInput.value}`);
+  const response = await fetch(`${API_BASE}/${playgroundInput.value}`);
   const data = await response.json();
 
   result.lanyard = data;
@@ -71,13 +68,13 @@ const handleSearch = useDebounceFn(async () => {
         <NuxtImg
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
-          class="w-full rounded-md lg:w-64"
+          class="w-full rounded-md lg:w-[300px] xl:w-[350px]"
         />
 
         <NuxtImg
           preload
           src="https://i.imgur.com/mbaEnBi.png"
-          class="w-full rounded-md lg:w-64"
+          class="w-full rounded-md lg:w-[300px] xl:w-[350px]"
         />
       </div>
 
@@ -87,7 +84,7 @@ const handleSearch = useDebounceFn(async () => {
         class="grid place-items-center lg:flex gap-x-4 gap-y-2 lg:place-items-start lg:grid-cols-2"
       >
         <Button
-          :href="config.DISCORD"
+          :href="DISCORD"
           :icon="LoginIcon"
           label="Join Discord Server"
           blank
@@ -125,9 +122,9 @@ const handleSearch = useDebounceFn(async () => {
         <p class="text-white/50">
           Lanyard uses a basic Discord Bot (which is open source as well) and
           monitors every user in
-          <Link :href="config.DISCORD" external blank> its Discord server</Link
-          >. On each presence change, Lanyard sends a WS signal to update the
-          API response.
+          <Link :href="DISCORD" external blank> its Discord server</Link>. On
+          each presence change, Lanyard sends a WS signal to update the API
+          response.
         </p>
       </div>
     </section>
@@ -181,7 +178,7 @@ const handleSearch = useDebounceFn(async () => {
             class="flex flex-col space-y-2"
           >
             <Button
-              :href="config.DISCORD"
+              :href="DISCORD"
               :icon="LoginIcon"
               label="Join Discord Server"
               blank

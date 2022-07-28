@@ -1,32 +1,16 @@
 <script lang="ts" setup>
-const props = defineProps({
-  name: {
-    type: String,
-    required: false,
-    default: "",
-  },
-  description: {
-    type: String,
-    required: false,
-    default: "",
-  },
-  framework: {
-    type: String,
-    required: false,
-    default: "",
-  },
-  url: {
-    type: String,
-    required: false,
-    default: "",
-  },
-});
+interface Props {
+  name: string;
+  description: string;
+}
+
+const { name } = defineProps<Props>();
 
 const getNameSegments = computed(() => {
-  const [owner, repo] = props.name.split("/");
+  const [owner, repo] = name.split("/");
 
   return {
-    full: props.name,
+    full: name,
     owner,
     repo,
   };
