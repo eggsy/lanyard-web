@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import HeartIcon from "~icons/tabler/heart";
 
-const config = useRuntimeConfig().public;
+const {
+  public: { GITHUB_REPO },
+} = useRuntimeConfig();
 </script>
 
 <template>
@@ -17,8 +19,6 @@ const config = useRuntimeConfig().public;
       <Link href="https://github.com/eggsy" external blank>@eggsy</Link>
     </span>
 
-    <Link :href="config.GITHUB_REPO" external blank>
-      Open source on GitHub
-    </Link>
+    <Link :href="GITHUB_REPO" external blank> Open source on GitHub </Link>
   </footer>
 </template>

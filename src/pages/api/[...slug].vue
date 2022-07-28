@@ -4,7 +4,9 @@ import NotFound from "@/components/content/NotFound.vue";
 import ChevronLeft from "~icons/tabler/arrow-big-left";
 import GithubIcon from "~icons/tabler/brand-github";
 
-const config = useRuntimeConfig().public;
+const {
+  public: { GITHUB_REPO },
+} = useRuntimeConfig();
 const route = useRoute();
 
 const hasDocument = await queryContent().only("_path").find();
@@ -49,7 +51,7 @@ watch([route], () => {
       <Button
         v-motion-fade
         :delay="200"
-        :href="`${config.GITHUB_REPO}/edit/main/src/content/api/${$route.params.slug}.md`"
+        :href="`${GITHUB_REPO}/edit/main/src/content/api/${$route.params.slug}.md`"
         :icon="GithubIcon"
         label="Edit this page on GitHub"
         blank

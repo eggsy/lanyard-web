@@ -2,10 +2,12 @@
 import CogIcon from "~icons/tabler/settings";
 
 const userIdInput = ref("162969778699501569");
-const config = useRuntimeConfig().public;
+const {
+  public: { API_BASE },
+} = useRuntimeConfig();
 
 const { refresh, data } = await useAsyncData(() =>
-  $fetch(`${config.API_BASE}/${userIdInput.value}`)
+  $fetch(`${API_BASE}/${userIdInput.value}`)
 );
 </script>
 

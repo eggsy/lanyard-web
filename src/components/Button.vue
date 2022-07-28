@@ -1,26 +1,12 @@
 <script lang="ts" setup>
-defineProps({
-  icon: {
-    type: Object,
-    required: false,
-    default: null,
-  },
-  label: {
-    type: String,
-    required: false,
-    default: "",
-  },
-  href: {
-    type: String,
-    required: false,
-    default: "",
-  },
-  blank: {
-    type: Boolean,
-    required: false,
-    default: false,
-  },
-});
+interface Props {
+  icon?: Record<string, any>;
+  label?: string;
+  href?: string;
+  blank?: boolean;
+}
+
+const { icon, label, href, blank } = defineProps<Props>();
 </script>
 
 <template>
