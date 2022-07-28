@@ -44,7 +44,7 @@ const {
         <Link :href="profile.html_url" external blank :title="profile.login">
           <img
             :src="profile.avatar_url"
-            class="w-10 h-10 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
+            class="w-12 h-12 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
             alt="user profile picture"
           />
         </Link>
