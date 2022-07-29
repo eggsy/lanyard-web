@@ -221,19 +221,19 @@ const handleSearch = useDebounceFn(async () => {
         </p>
 
         <div class="space-y-1">
-          <p class="text-sm text-white/50">
+          <Button
+            href="/api/introduction"
+            label="Read more about the API"
+            :icon="IconApi"
+          />
+
+          <p class="text-xs text-white/50">
             {{
               playgroundInput && magicPreviewError === false
                 ? "🤯 Now, isn't that cool?"
                 : "✨ Enter user ID to see the magic"
             }}
           </p>
-
-          <Button
-            href="/api/introduction"
-            label="Read more about the API"
-            :icon="IconApi"
-          />
         </div>
       </div>
 
