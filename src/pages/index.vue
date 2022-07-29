@@ -209,15 +209,14 @@ const handleSearch = useDebounceFn(async () => {
 
         <p class="text-white/50">
           Lanyard API is meant to create whatever you want using the data it
-          provides. Some cool people have already created amazing projects, want
-          to try one? Let's preview how would
+          provides. People have already started creating amazing projects. Let's
+          preview one of them,
           <Link
             href="https://github.com/cnrad/lanyard-profile-readme"
             external
             blank
             >lanyard-profile-readme</Link
-          >
-          would look on your profile/website.
+          >. You can embed the result in your website or GitHub-like readme.
         </p>
 
         <div class="space-y-1">
