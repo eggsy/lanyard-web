@@ -1,16 +1,21 @@
 <script lang="ts" setup>
 interface Props {
   name: string;
+  href: string;
   description: string;
 }
 
-const { name } = defineProps<Props>();
+const { name, href } = defineProps<Props>();
 
 const getNameSegments = computed(() => {
-  const [owner, repo] = name.split("/");
+  if (!href.includes("github.com"))
+    return {
+      repo: name,
+    };
+
+  const [owner, repo] = href.replace("https://github.com/", "")?.split("/");
 
   return {
-    full: name,
     owner,
     repo,
   };
@@ -22,12 +27,24 @@ const getNameSegments = computed(() => {
     class="bg-[#313336]/40 transition-colors flex-shrink-0 h-full p-4 rounded-lg w-80 snap-start"
   >
     <header class="flex flex-col space-y-2">
-      <div class="flex flex-wrap items-start gap-1.5">
-        <div class="flex items-center flex-shrink-0 space-x-2">
+      <div
+        class="flex flex-wrap items-start"
+        :class="{
+          'gap-1.5': getNameSegments.owner,
+        }"
+      >
+        <div
+          v-if="getNameSegments.owner"
+          class="flex items-center flex-shrink-0 space-x-2"
+          :class="{
+            'space-x-2': getNameSegments.owner,
+          }"
+        >
           <img
             :src="`https://github.com/${getNameSegments.owner}.png`"
             alt="repo owner image"
             class="flex-shrink-0 w-5 h-5 rounded-full"
+            @error="(e) => ((e.target as HTMLImageElement).src = '/icon.png')"
           />
 
           <Link
@@ -39,14 +56,12 @@ const getNameSegments = computed(() => {
             {{ getNameSegments.owner }}
           </Link>
         </div>
-        <span class="text-sm text-white/50">/</span>
 
-        <Link
-          :href="`https://github.com/${getNameSegments.full}`"
-          class="font-medium text-white/75"
-          external
-          blank
-        >
+        <span v-if="getNameSegments.owner" class="text-sm text-white/50">
+          /
+        </span>
+
+        <Link :href="href" class="font-medium text-white/75" external blank>
           {{ getNameSegments.repo }}
         </Link>
       </div>
