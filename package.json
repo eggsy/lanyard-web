@@ -10,7 +10,6 @@
     "@iconify-json/logos": "^1.1.14",
     "@iconify-json/tabler": "^1.1.21",
     "@nuxt/content": "^2.0.1",
-    "@nuxt/image-edge": "^1.0.0-testing",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
     "@types/prismjs": "^1.26.0",
@@ -21,6 +20,7 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^5.3.1",
     "@vueuse/motion": "^2.0.0-beta.18",
+    "ipx": "^0.9.10",
     "shiki": "^0.10.1"
   }
 }

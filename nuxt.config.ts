@@ -9,12 +9,7 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/image-edge",
-    "unplugin-icons/nuxt",
-    "@nuxt/content",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "unplugin-icons/nuxt", "@nuxt/content"],
 
   content: {
     highlight: {
