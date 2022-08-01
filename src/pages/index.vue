@@ -302,7 +302,9 @@ const handleSearch = useDebounceFn(async () => {
       >
         <Loader v-if="pageData.loading" class="w-full h-24" />
 
-        <p v-else-if="pageData.error">An error occured.</p>
+        <p v-else-if="pageData.error" class="text-white/50">
+          An error occured.
+        </p>
 
         <CardCommunityProject
           v-else
@@ -321,7 +323,9 @@ const handleSearch = useDebounceFn(async () => {
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-white/50">
         <Loader v-if="pageData.loading" class="w-full h-40" />
 
-        <p v-else-if="pageData.error">An error occured.</p>
+        <p v-else-if="pageData.error" class="text-white/50">
+          An error occured.
+        </p>
 
         <Link
           v-else

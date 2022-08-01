@@ -40,7 +40,7 @@ const {
     <div class="flex flex-wrap items-center gap-2">
       <Loader v-if="pending" class="h-24" />
 
-      <p v-else-if="error">An error occured.</p>
+      <p v-else-if="error !== null" class="text-white/50">An error occured.</p>
 
       <div
         v-else
