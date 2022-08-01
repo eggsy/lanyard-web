@@ -42,6 +42,7 @@ const getNameSegments = computed(() => {
         >
           <img
             :src="`https://github.com/${getNameSegments.owner}.png`"
+            loading="lazy"
             alt="repo owner image"
             class="flex-shrink-0 w-5 h-5 rounded-full"
             @error="(e) => ((e.target as HTMLImageElement).src = '/icon.png')"

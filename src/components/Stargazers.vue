@@ -11,11 +11,7 @@ const {
   public: { GITHUB_REPO },
 } = useRuntimeConfig();
 
-const {
-  data: stargazers,
-  pending,
-  error,
-} = await useFetch<IGithubResponse[]>(
+const { data: stargazers, pending } = await useFetch<IGithubResponse[]>(
   "https://api.github.com/repos/eggsy/lanyard-web/stargazers"
 );
 </script>
@@ -40,8 +36,6 @@ const {
     <div class="flex flex-wrap items-center gap-2">
       <Loader v-if="pending" class="h-24" />
 
-      <p v-else-if="error !== null" class="text-white/50">An error occured.</p>
-
       <div
         v-else
         v-for="(profile, index) in stargazers"
@@ -51,6 +45,7 @@ const {
           <img
             :src="profile.avatar_url"
             class="w-12 h-12 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
+            loading="lazy"
             alt="user profile picture"
           />
         </Link>
