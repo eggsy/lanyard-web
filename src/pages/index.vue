@@ -65,13 +65,13 @@ const handleSearch = useDebounceFn(async () => {
         :delay="250"
         class="flex flex-wrap min-h-[140px] items-start justify-center lg:justify-start gap-x-4 gap-y-2 no-scrollbar"
       >
-        <NuxtImg
+        <img
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
           class="w-full rounded-md lg:w-72 xl:w-80"
         />
 
-        <NuxtImg
+        <img
           preload
           src="https://i.imgur.com/mbaEnBi.png"
           class="w-full rounded-md lg:w-72 xl:w-80"
@@ -243,7 +243,7 @@ const handleSearch = useDebounceFn(async () => {
           @keyup.capture="handleSearch"
         />
 
-        <NuxtImg
+        <img
           v-show="playgroundInput && magicPreviewError === false"
           v-motion-fade
           :src="`https://lanyard.cnrad.dev/api/${playgroundInput}`"

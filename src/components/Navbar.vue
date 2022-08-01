@@ -9,7 +9,7 @@ import IconApi from "~icons/tabler/packge-import";
     class="container flex flex-col items-center justify-between gap-4 mx-auto lg:flex-row lg:w-7/12"
   >
     <NuxtLink to="/">
-      <NuxtImg
+      <img
         src="https://storage.googleapis.com/lanyard/static/lanyardtemplogo.png"
         alt="logo"
         class="w-44 lg:w-36"
