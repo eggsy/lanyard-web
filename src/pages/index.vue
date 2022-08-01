@@ -69,12 +69,14 @@ const handleSearch = useDebounceFn(async () => {
           preload
           src="https://i.imgur.com/ZgjFF3m.png"
           class="w-full rounded-md lg:w-72 xl:w-80"
+          alt="lanyard profile readme"
         />
 
         <img
           preload
           src="https://i.imgur.com/mbaEnBi.png"
           class="w-full rounded-md lg:w-72 xl:w-80"
+          alt="lanyard visualizer"
         />
       </div>
 
