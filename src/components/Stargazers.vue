@@ -11,8 +11,12 @@ const {
   public: { GITHUB_REPO },
 } = useRuntimeConfig();
 
-const { data: stargazers, pending } = await useFetch<IGithubResponse[]>(
-  "https://api.github.com/repos/eggsy/lanyard-web/stargazers"
+const {
+  data: stargazers,
+  pending,
+  error,
+} = await useFetch<IGithubResponse[]>(
+  () => "https://api.github.com/repos/eggsy/lanyard-web/stargazers"
 );
 </script>
 
@@ -33,23 +37,27 @@ const { data: stargazers, pending } = await useFetch<IGithubResponse[]>(
       </Link>
     </div>
 
-    <div class="flex flex-wrap items-center gap-2">
-      <Loader v-if="pending" class="h-24" />
+    <Loader v-if="pending" class="h-24" />
 
-      <div
-        v-else
+    <p v-else-if="error !== null">An error occured.</p>
+
+    <div v-else class="flex flex-wrap items-center gap-2">
+      <Link
         v-for="(profile, index) in stargazers"
         :key="`stargazer-${index}`"
+        :href="profile.html_url"
+        :title="profile.login"
+        external
+        blank
+        no-decoration
       >
-        <Link :href="profile.html_url" external blank :title="profile.login">
-          <img
-            :src="profile.avatar_url"
-            class="w-12 h-12 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
-            loading="lazy"
-            alt="user profile picture"
-          />
-        </Link>
-      </div>
+        <img
+          :src="profile.avatar_url"
+          class="w-12 h-12 transition-all rounded-full hover:grayscale-0 lg:grayscale hover:ring-1 ring-white/20"
+          loading="lazy"
+          alt="user profile picture"
+        />
+      </Link>
     </div>
   </section>
 </template>
