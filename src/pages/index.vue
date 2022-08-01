@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 import { useDebounceFn } from "@vueuse/shared";
-
-// Data
-import { communityProjects } from "@/data/communityProjects";
-import { usedBy } from "../data/usedBy";
+import { useReadmeProjects } from "../composables/useReadmeProjects";
 
 // Icons
 import IconChevronRight from "~icons/tabler/chevron-right";
@@ -12,6 +9,7 @@ import IconLogin from "~icons/tabler/login";
 import IconGithub from "~icons/tabler/brand-github";
 import IconApi from "~icons/tabler/api";
 
+const pageData = useReadmeProjects();
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
 const magicPreviewError = ref(false);
@@ -275,7 +273,11 @@ const handleSearch = useDebounceFn(async () => {
 
         <div class="flex items-center space-x-2">
           <p class="text-sm text-white/50">
-            {{ communityProjects.length }} tools in total
+            {{
+              pageData.loading
+                ? "Loading"
+                : `${pageData.projects.length} in total`
+            }}
           </p>
 
           <div class="items-center hidden space-x-1 lg:flex">
@@ -302,8 +304,11 @@ const handleSearch = useDebounceFn(async () => {
         ref="scrollContainer"
         class="grid grid-flow-col overflow-x-auto no-scrollbar snap-x snap-mandatory gap-x-4"
       >
+        <Loader v-if="pageData.loading" class="w-full h-24" />
+
         <CardCommunityProject
-          v-for="(project, index) in communityProjects"
+          v-else
+          v-for="(project, index) in pageData.projects"
           :key="`community-project-${index}`"
           v-bind="project"
         />
@@ -316,9 +321,12 @@ const handleSearch = useDebounceFn(async () => {
       <h2 class="text-2xl font-bold leading-tight">Used By</h2>
 
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-white/50">
+        <Loader v-if="pageData.loading" class="w-full h-40" />
+
         <Link
-          v-for="(website, index) in usedBy"
-          :key="`used-by-${index}`"
+          v-else
+          v-for="website in pageData.websites"
+          :key="`used-by-${website}`"
           :href="`https://${website}`"
           external
           blank
