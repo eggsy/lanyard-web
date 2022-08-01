@@ -2,10 +2,12 @@ import { ref, onMounted, reactive } from "vue";
 
 export const useReadmeProjects = () => {
   const loading = ref(true);
+  const error = ref(false);
+
+  const websites = ref<string[]>([]);
   const projects = ref<{ name: string; href: string; description: string }[]>(
     []
   );
-  const websites = ref<string[]>([]);
 
   onMounted(async () => {
     const readme: { content: string } = await fetch(
@@ -15,7 +17,12 @@ export const useReadmeProjects = () => {
           "User-Agent": "Lanyard Web",
         },
       }
-    ).then((r) => r.json());
+    )
+      .then((r) => r.json())
+      .catch(() => {
+        error.value = true;
+        loading.value = false;
+      });
 
     const text = atob(readme.content).toString();
     const regexMatch = /\[(.*?)\]\((.*?)\)/;
@@ -58,5 +65,6 @@ export const useReadmeProjects = () => {
     projects,
     websites,
     loading,
+    error,
   });
 };

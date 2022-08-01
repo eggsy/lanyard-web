@@ -273,11 +273,7 @@ const handleSearch = useDebounceFn(async () => {
 
         <div class="flex items-center space-x-2">
           <p class="text-sm text-white/50">
-            {{
-              pageData.loading
-                ? "Loading"
-                : `${pageData.projects.length} in total`
-            }}
+            {{ !pageData.loading && `${pageData.projects.length} in total` }}
           </p>
 
           <div class="items-center hidden space-x-1 lg:flex">
@@ -306,6 +302,8 @@ const handleSearch = useDebounceFn(async () => {
       >
         <Loader v-if="pageData.loading" class="w-full h-24" />
 
+        <p v-else-if="pageData.error">An error occured.</p>
+
         <CardCommunityProject
           v-else
           v-for="(project, index) in pageData.projects"
@@ -322,6 +320,8 @@ const handleSearch = useDebounceFn(async () => {
 
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-white/50">
         <Loader v-if="pageData.loading" class="w-full h-40" />
+
+        <p v-else-if="pageData.error">An error occured.</p>
 
         <Link
           v-else
