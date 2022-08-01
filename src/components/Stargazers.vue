@@ -21,7 +21,7 @@ const {
 </script>
 
 <template>
-  <section v-if="!error" v-motion-fade-visible-once class="py-8 space-y-4">
+  <section v-motion-fade-visible-once class="py-8 space-y-4">
     <div class="flex justify-between space-x-4">
       <h2 class="text-2xl font-bold leading-tight">Stargazers</h2>
 
@@ -38,9 +38,15 @@ const {
     </div>
 
     <div class="flex flex-wrap items-center gap-2">
-      <p v-if="pending">Loading data...</p>
+      <Loader v-if="pending" class="h-24" />
 
-      <div v-for="(profile, index) in stargazers" :key="`stargazer-${index}`">
+      <p v-else-if="error">An error occured.</p>
+
+      <div
+        v-else
+        v-for="(profile, index) in stargazers"
+        :key="`stargazer-${index}`"
+      >
         <Link :href="profile.html_url" external blank :title="profile.login">
           <img
             :src="profile.avatar_url"
