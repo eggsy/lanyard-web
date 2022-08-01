@@ -1,5 +1,10 @@
+/*
+  I will keep this file in case Lanyard updates readme and my script
+  fails to parse it, I will revert back to this then.
+*/
+
 export const usedBy = [
-  // first come, first indexed
+  // add your website to the bottom of the list
   "alistair.cloud",
   "timcole.me",
   "dstn.to",
@@ -63,4 +68,5 @@ export const usedBy = [
   "leonard.sh",
   "ithundxr.dev",
   "callumdev.xyz",
+  "jvsh.me",
 ];

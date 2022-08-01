@@ -1,3 +1,8 @@
+/*
+  I will keep this file in case Lanyard updates readme and my script
+  fails to parse it, I will revert back to this then.
+*/
+
 interface CommunityProject {
   name: string;
   description: string;
