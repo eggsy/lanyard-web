@@ -6,7 +6,6 @@ const description =
 
 useHead({
   title: "Home",
-  titleTemplate: `%s | Lanyard`,
   htmlAttrs: {
     lang: "en",
   },
