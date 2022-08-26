@@ -21,6 +21,18 @@ watch([route], () => {
     behavior: "smooth",
   });
 });
+
+onMounted(() => {
+  const windowHash = location.hash;
+  if (!windowHash) return;
+
+  const element = document.querySelector(windowHash);
+  if (!element) return;
+
+  element.scrollIntoView({
+    behavior: "smooth",
+  });
+});
 </script>
 
 <template>
