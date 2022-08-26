@@ -316,10 +316,10 @@
   dependencies:
     "@iconify/types" "*"
 
-"@iconify-json/tabler@^1.1.27":
-  version "1.1.27"
-  resolved "https://registry.yarnpkg.com/@iconify-json/tabler/-/tabler-1.1.27.tgz#700183c94ffa6ead61513911fdc0cbfb1a657f0c"
-  integrity sha512-6mfQr5Oac6ffVsCyjPPhLEoi8vz0dJMTP0S+kp2NV7m1ib90l6kPYeiWyIpYY61MYKqY5IxWmIPQhg0comQhQw==
+"@iconify-json/tabler@^1.1.28":
+  version "1.1.28"
+  resolved "https://registry.yarnpkg.com/@iconify-json/tabler/-/tabler-1.1.28.tgz#54483eaac8926b88acffc8d0a11aab0e39bf6b62"
+  integrity sha512-a2yg4oWsElUkvc/xcyNfO6otvzBquw9OoltBr2hsY4+rsNZMW/NigZHACrp8y7j4vtmJ8XJS/ATWDOhzrWxtJw==
   dependencies:
     "@iconify/types" "*"
 
@@ -3781,9 +3781,9 @@ mdast-util-gfm@^2.0.0:
     mdast-util-to-markdown "^1.0.0"
 
 mdast-util-to-hast@^12.1.0, mdast-util-to-hast@^12.1.1:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-12.2.0.tgz#4dbff7ab2b20b8d12fc8fe98bf804d97e7358cbf"
-  integrity sha512-YDwT5KhGzLgPpSnQhAlK1+WpCW4gsPmNNAxUNMkMTDhxQyPp2eX86WOelnKnLKEvSpfxqJbPbInHFkefXZBhEA==
+  version "12.2.1"
+  resolved "https://registry.yarnpkg.com/mdast-util-to-hast/-/mdast-util-to-hast-12.2.1.tgz#5bba5e8234abcf66ae474cace5d0372c0dc4bfd7"
+  integrity sha512-dyindR2P7qOqXO1hQirZeGtVbiX7xlNQbw7gGaAwN4A1dh4+X8xU/JyYmRoyB8Fu1uPXzp7mlL5QwW7k+knvgA==
   dependencies:
     "@types/hast" "^2.0.0"
     "@types/mdast" "^3.0.0"
@@ -6297,9 +6297,9 @@ unplugin@^0.8.0:
     webpack-virtual-modules "^0.4.4"
 
 unplugin@^0.9.0:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.9.4.tgz#53e6f4fc92905122219af0e3f40af753563d38b6"
-  integrity sha512-lUe769wSsZiltVA1Ns9ZRx3K1ri/4yzOrLLI/ebSAj2f0PsXqIJeHIXhkhiayEe1pv+mHuZYyBS3B2RXG2Q2EQ==
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.9.5.tgz#2e546c044e0631e699ebd6fb521eeb7bbcb8899f"
+  integrity sha512-luraheyfxwtvkvHpsOvMNv7IjLdORTWKZp0gWYNHGLi2ImON3iIZOj464qEyyEwLA/EMt12fC415HW9zRpOfTg==
   dependencies:
     acorn "^8.8.0"
     chokidar "^3.5.3"
@@ -6521,9 +6521,9 @@ vue-bundle-renderer@^0.4.1:
     ufo "^0.8.3"
 
 vue-demi@*:
-  version "0.13.10"
-  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.10.tgz#e01bccb9d515ea0ed4a50c1387cbce3e60e93256"
-  integrity sha512-/R4QhdqGyGqSysOfhkxmYHKwdETZq2z6HAf/fjeGErdJX9cJifX5ijHJS+VjNblGIhjXz/yQTwe/t7Cip+/aJw==
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.11.tgz#7d90369bdae8974d87b1973564ad390182410d99"
+  integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
 
 vue-router@^4.1.2:
   version "4.1.4"
