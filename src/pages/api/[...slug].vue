@@ -15,13 +15,6 @@ const hasThisDocument = computed(() => {
   return mappedItems.includes(route.fullPath);
 });
 
-watch([route], () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
-
 onMounted(() => {
   const windowHash = location.hash;
   if (!windowHash) return;
