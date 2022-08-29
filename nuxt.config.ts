@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
 
-  modules: ["@nuxtjs/tailwindcss", "unplugin-icons/nuxt", "@nuxt/content"],
+  modules: ["@nuxtjs/tailwindcss", "unplugin-icons/nuxt", "@nuxt/content", "@vueuse/motion/nuxt"],
 
   content: {
     highlight: {
