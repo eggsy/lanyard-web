@@ -1031,10 +1031,10 @@
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-8.9.4.tgz#a4132db33e4c1b1023636acfa20aa7b37ab3d978"
   integrity sha512-IwSfzH80bnJMzqhaapqJl9JRIiyQU0zsRGEgnxN6jhq7992cPUJIRfV+JHRIZXjYqbwt07E1gTEp0R0zPJ1aqw==
 
-"@vueuse/motion@2.0.0-beta.17":
-  version "2.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-2.0.0-beta.17.tgz#9bcff665c644915da8136f9cbd95582148a44639"
-  integrity sha512-qOBM4VHIjPtWVieYAO8+lShG9ji1Wk4JJlphwrbvSK11ep93J3SJyWqARb1oxoBNqx7Zk8d0j8/lKxgKRkpuGA==
+"@vueuse/motion@2.0.0-beta.18":
+  version "2.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/@vueuse/motion/-/motion-2.0.0-beta.18.tgz#e98e9a4c34da2ca456a10639dca3b36409e97b5f"
+  integrity sha512-mPeXxuqZp13lqpcb+345TnEP7tEOjC/wTkwf8be1Obzt3913lPpZPXgwKafMoocKRNOnMZye8Y6PqQOEKztk9A==
   dependencies:
     "@vueuse/core" "^8.1.2"
     "@vueuse/shared" "^8.1.2"
