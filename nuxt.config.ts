@@ -1,19 +1,16 @@
-import { defineNuxtConfig } from "nuxt";
-
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  compatibilityDate: "2024-08-12",
+
   rootDir: ".",
   srcDir: "./src",
   components: true,
 
-  ssr: true,
-  target: "static",
-
   modules: [
     "@nuxtjs/tailwindcss",
-    "unplugin-icons/nuxt",
     "@nuxt/content",
     "@vueuse/motion/nuxt",
+    "@nuxt/icon",
   ],
 
   content: {
@@ -32,13 +29,5 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     viewer: false,
-  },
-
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        types: ["unplugin-icons/types/vue"],
-      },
-    },
   },
 });

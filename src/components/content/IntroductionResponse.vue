@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import CogIcon from "~icons/tabler/settings";
-
 const userIdInput = ref("162969778699501569");
 const {
   public: { API_BASE },
 } = useRuntimeConfig();
 
 const { refresh, data } = await useAsyncData(() =>
-  $fetch(`${API_BASE}/${userIdInput.value}`)
+  $fetch(`${API_BASE}/${userIdInput.value}`),
 );
 </script>
 
@@ -20,7 +18,7 @@ const { refresh, data } = await useAsyncData(() =>
       @keydown.enter="refresh()"
     />
 
-    <Button label="Run" :icon="CogIcon" @click.native="refresh()" />
+    <Button label="Run" icon="tabler:settings" @click.native="refresh()" />
   </div>
 
   <Highlight :code="JSON.stringify(data, null, 2)" />

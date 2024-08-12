@@ -1,9 +1,6 @@
 <script lang="ts" setup>
 import NotFound from "@/components/content/NotFound.vue";
 
-import ChevronLeft from "~icons/tabler/arrow-big-left";
-import GithubIcon from "~icons/tabler/brand-github";
-
 const {
   public: { GITHUB_REPO },
 } = useRuntimeConfig();
@@ -36,7 +33,7 @@ onMounted(() => {
       class="hidden float-left lg:block -ml-14 top-10"
     >
       <NuxtLink to="/api/introduction">
-        <Button :icon="ChevronLeft" />
+        <Button icon="tabler:arrow-big-left" />
       </NuxtLink>
     </div>
 
@@ -59,7 +56,7 @@ onMounted(() => {
         v-motion-fade
         :delay="200"
         :href="`${GITHUB_REPO}/edit/main/src/content/api/${$route.params.slug}.md`"
-        :icon="GithubIcon"
+        icon="tabler:brand-github"
         label="Edit this page on GitHub"
         blank
       />

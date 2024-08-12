@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import HeartIcon from "~icons/tabler/heart";
-
 const {
   public: { GITHUB_REPO },
 } = useRuntimeConfig();
@@ -10,15 +8,17 @@ const {
   <footer
     class="container flex flex-col items-center justify-center pb-6 mx-auto mt-24 text-white/50"
   >
-    <HeartIcon class="text-xl" />
+    <Icon name="tabler:heart" class="text-xl" />
 
     <span>
       Lanyard by
-      <Link href="https://github.com/phineas" external blank>@phineas</Link>,
+      <CLink href="https://github.com/phineas" external blank>@phineas</CLink>,
       website by
-      <Link href="https://github.com/eggsy" external blank>@eggsy</Link>
+      <CLink href="https://github.com/eggsy" external blank>@eggsy</CLink>
     </span>
 
-    <Link :href="GITHUB_REPO" external blank> Open source on GitHub </Link>
+    <CLink :href="GITHUB_REPO" external blank
+      >This website is open source on GitHub
+    </CLink>
   </footer>
 </template>

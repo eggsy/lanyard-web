@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import IconStar from "~icons/tabler/star";
-
 interface IGithubResponse {
   login: string;
   avatar_url: string;
@@ -16,7 +14,7 @@ const {
   pending,
   error,
 } = await useFetch<IGithubResponse[]>(
-  () => "https://api.github.com/repos/eggsy/lanyard-web/stargazers"
+  () => "https://api.github.com/repos/eggsy/lanyard-web/stargazers",
 );
 </script>
 
@@ -25,16 +23,16 @@ const {
     <div class="flex justify-between space-x-4">
       <h2 class="text-2xl font-bold leading-tight">Stargazers</h2>
 
-      <Link
+      <CLink
         :href="GITHUB_REPO"
         class="flex items-center space-x-2 text-sm transition-colors text-white/50 hover:text-white"
         no-decoration
         external
         blank
       >
-        <IconStar class="w-4 h-4" />
+        <Icon name="tabler:star" class="w-4 h-4" />
         <span>Star on GitHub</span>
-      </Link>
+      </CLink>
     </div>
 
     <Loader v-if="pending" class="h-24" />
@@ -42,7 +40,7 @@ const {
     <p v-else-if="error !== null">An error occured.</p>
 
     <div v-else class="flex flex-wrap items-center gap-2">
-      <Link
+      <CLink
         v-for="(profile, index) in stargazers"
         :key="`stargazer-${index}`"
         :href="profile.html_url"
@@ -57,7 +55,7 @@ const {
           loading="lazy"
           alt="user profile picture"
         />
-      </Link>
+      </CLink>
     </div>
   </section>
 </template>

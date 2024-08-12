@@ -6,7 +6,7 @@ export const useReadmeProjects = () => {
 
   const websites = ref<string[]>([]);
   const projects = ref<{ name: string; href: string; description: string }[]>(
-    []
+    [],
   );
 
   onMounted(async () => {
@@ -16,7 +16,7 @@ export const useReadmeProjects = () => {
         headers: {
           "User-Agent": "Lanyard Web",
         },
-      }
+      },
     )
       .then((r) => r.json())
       .catch(() => {
@@ -30,6 +30,8 @@ export const useReadmeProjects = () => {
     /* Community Projects */
     const projectsText = text.split("## Community Projects")[1].split("\n")[2];
     const communityProjectsDown = text.split(projectsText)[1];
+
+    console.log(projectsText);
 
     projects.value = communityProjectsDown
       .split("##")[0]
@@ -46,7 +48,7 @@ export const useReadmeProjects = () => {
         };
       });
 
-    const websitesText = text.split("## Used By")[1].split("\n")[2];
+    const websitesText = text.split("## Showcase")[1].split("\n")[2];
     const websitesDown = text?.split(websitesText)?.[1];
 
     websites.value = websitesDown

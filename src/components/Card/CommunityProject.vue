@@ -48,23 +48,23 @@ const getNameSegments = computed(() => {
             @error="(e) => ((e.target as HTMLImageElement).src = '/icon.png')"
           />
 
-          <Link
+          <CLink
             :href="`https://github.com/${getNameSegments.owner}`"
             class="font-semibold text-white/25"
             external
             blank
           >
             {{ getNameSegments.owner }}
-          </Link>
+          </CLink>
         </div>
 
         <span v-if="getNameSegments.owner" class="text-sm text-white/50">
           /
         </span>
 
-        <Link :href="href" class="font-medium text-white/75" external blank>
+        <CLink :href="href" class="font-medium text-white/75" external blank>
           {{ getNameSegments.repo }}
-        </Link>
+        </CLink>
       </div>
 
       <p class="text-white/50 line-clamp-3">{{ description }}</p>

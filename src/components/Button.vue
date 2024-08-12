@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-  icon?: Record<string, any>;
+  icon?: string;
   label?: string;
   href?: string;
   blank?: boolean;
@@ -22,7 +22,7 @@ const { icon, label, href, blank } = defineProps<Props>();
       'px-8 py-3 space-x-2': label,
     }"
   >
-    <Component :is="icon" />
+    <Icon :name="icon" />
     <span class="text-sm font-bold">{{ label }}</span>
   </Component>
 </template>

@@ -2,13 +2,6 @@
 import { useDebounceFn } from "@vueuse/shared";
 import { useReadmeProjects } from "../composables/useReadmeProjects";
 
-// Icons
-import IconChevronRight from "~icons/tabler/chevron-right";
-import IconChevronLeft from "~icons/tabler/chevron-left";
-import IconLogin from "~icons/tabler/login";
-import IconGithub from "~icons/tabler/brand-github";
-import IconApi from "~icons/tabler/api";
-
 const pageData = useReadmeProjects();
 const scrollContainer = ref<HTMLElement | null>(null);
 const playgroundInput = ref("");
@@ -36,7 +29,7 @@ const getStatus = computed<{ color: string; name: string }>(
       dnd: { color: "bg-red-600", name: "Do Not Disturb" },
       idle: { color: "bg-yellow-600", name: "Idle" },
       offline: { color: "bg-gray-200", name: "Offline" },
-    }[result.lanyard?.data?.discord_status || "offline"])
+    })[result.lanyard?.data?.discord_status || "offline"],
 );
 
 const handleSearch = useDebounceFn(async () => {
@@ -87,14 +80,14 @@ const handleSearch = useDebounceFn(async () => {
       >
         <Button
           :href="DISCORD"
-          :icon="IconLogin"
+          icon="tabler:login"
           label="Join Discord Server"
           blank
         />
 
         <Button
           href="https://github.com/phineas/lanyard"
-          :icon="IconGithub"
+          icon="tabler:brand-github"
           label="Open Source"
           blank
         />
@@ -124,7 +117,7 @@ const handleSearch = useDebounceFn(async () => {
         <p class="text-white/50">
           Lanyard uses a basic Discord Bot (which is open source as well) and
           monitors every user in
-          <Link :href="DISCORD" external blank> its Discord server</Link>. On
+          <CLink :href="DISCORD" external blank> its Discord server</CLink>. On
           each presence change, Lanyard sends a WS signal to update the API
           response.
         </p>
@@ -181,7 +174,7 @@ const handleSearch = useDebounceFn(async () => {
           >
             <Button
               :href="DISCORD"
-              :icon="IconLogin"
+              icon="tabler:login"
               label="Join Discord Server"
               blank
             />
@@ -211,11 +204,11 @@ const handleSearch = useDebounceFn(async () => {
           Lanyard API is meant to create whatever you want using the data it
           provides. People have already started creating amazing projects. Let's
           preview one of them,
-          <Link
+          <CLink
             href="https://github.com/cnrad/lanyard-profile-readme"
             external
             blank
-            >lanyard-profile-readme</Link
+            >lanyard-profile-readme</CLink
           >. You can embed the result in your website or GitHub-like readme.
         </p>
 
@@ -223,7 +216,7 @@ const handleSearch = useDebounceFn(async () => {
           <Button
             href="/api/introduction"
             label="Read more about the API"
-            :icon="IconApi"
+            icon="tabler:api"
           />
 
           <p class="text-xs text-white/50">
@@ -274,8 +267,8 @@ const handleSearch = useDebounceFn(async () => {
         <h2 class="text-2xl font-bold leading-tight">Community Projects</h2>
 
         <div class="flex items-center space-x-2">
-          <p class="text-sm text-white/50">
-            {{ !pageData.loading && `${pageData.projects.length} in total` }}
+          <p v-if="!pageData.loading" class="text-sm text-white/50">
+            {{ `${pageData.projects.length} in total` }}
           </p>
 
           <div class="items-center hidden space-x-1 lg:flex">
@@ -284,7 +277,7 @@ const handleSearch = useDebounceFn(async () => {
               class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
               @click="handleClick('prev')"
             >
-              <IconChevronLeft />
+              <Icon name="tabler:chevron-left" />
             </button>
 
             <button
@@ -292,7 +285,7 @@ const handleSearch = useDebounceFn(async () => {
               class="p-1 transition-colors rounded-full bg-brand hover:bg-brand/50"
               @click="handleClick('next')"
             >
-              <IconChevronRight />
+              <Icon name="tabler:chevron-right" />
             </button>
           </div>
         </div>
@@ -329,7 +322,7 @@ const handleSearch = useDebounceFn(async () => {
           An error occured.
         </p>
 
-        <Link
+        <CLink
           v-else
           v-for="website in pageData.websites"
           :key="`used-by-${website}`"
@@ -338,7 +331,7 @@ const handleSearch = useDebounceFn(async () => {
           blank
         >
           {{ website }}
-        </Link>
+        </CLink>
       </div>
     </section>
 

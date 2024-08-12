@@ -1,8 +1,3 @@
-<script lang="ts" setup>
-import IconHome from "~icons/tabler/home";
-import IconApi from "~icons/tabler/packge-import";
-</script>
-
 <template>
   <nav
     v-motion-fade
@@ -18,13 +13,13 @@ import IconApi from "~icons/tabler/packge-import";
 
     <ul class="items-center hidden space-x-6 lg:flex">
       <li class="flex items-center space-x-2">
-        <IconHome />
-        <Link href="/" internal>Home</Link>
+        <Icon name="tabler:home" />
+        <CLink href="/" internal>Home</CLink>
       </li>
 
       <li class="flex items-center space-x-2">
-        <IconApi />
-        <Link href="/api/introduction" internal>API</Link>
+        <Icon name="tabler:package-import" />
+        <CLink href="/api/introduction" internal>API</CLink>
       </li>
     </ul>
   </nav>

@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import IconApi from "~icons/tabler/packge-import";
-
 const scrollHeight = ref(0);
 const route = useRoute();
 
@@ -22,7 +20,7 @@ onBeforeUnmount(() => {
     <Button
       v-show="scrollHeight > 150 && route.path === '/'"
       href="/api/introduction"
-      :icon="IconApi"
+      icon="tabler:package-import"
       label="Documentation"
       class="fixed inset-x-0 bottom-0 block m-6 mx-auto text-xl lg:hidden backdrop-blur-md w-max"
     />
